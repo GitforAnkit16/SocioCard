@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="transaction.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><img src="sociologo.png"  width="100" height="100"  /></a></li>
+            <li><a href="card.html">Home</a></li>
+            <li><a href="card.html">Sociocard</a></li>
+            <li><a href="sociocredit.html">Sociocredit</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Transaction History</h1>
+        <div class="transaction-series">
+            <h2>Transaction Series 1</h2>
+            <p class="current-balance">Current Bank Balance: ₹700</p>
+            <div class="transactions">
+                <div class="transaction" onclick="showTransactionDetails('transaction1')">
+                    <p>Money added: ₹1000</p>
+                </div>
+                <div class="transaction" onclick="showTransactionDetails('transaction2')">
+                    <p>Product bought: Shirt - ₹500</p>
+                </div>
+                <div class="transaction" onclick="showTransactionDetails('transaction3')">
+                    <p>Cashback received: ₹200</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="transaction-series">
+            <h2>Transaction Series 2</h2>
+            <p class="current-balance">Current Bank Balance: ₹1320</p>
+            <div class="transactions">
+                <div class="transaction" onclick="showTransactionDetails('transaction4')">
+                    <p>Money added: ₹1500</p>
+                </div>
+                <div class="transaction" onclick="showTransactionDetails('transaction5')">
+                    <p>Product bought: T-shirt - ₹300</p>
+                </div>
+                <div class="transaction" onclick="showTransactionDetails('transaction6')">
+                    <p>Cashback received: ₹120</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="transaction-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeTransactionDetails()">&times;</span>
+                <h2>Transaction Details</h2>
+                <p id="transaction-id"></p>
+                <p id="transaction-time"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       
+        function showTransactionDetails(transactionId) {
+            var modal = document.getElementById("transaction-modal");
+            modal.style.display = "block";
+
+            switch (transactionId) {
+                case 'transaction1':
+                    document.getElementById("transaction-id").innerText = "Transaction ID: 123456";
+                    document.getElementById("transaction-time").innerText = "Date & Time: 2024-03-10 09:00 AM";
+                    break;
+                case 'transaction2':
+                    document.getElementById("transaction-id").innerText = "Transaction ID: 789012";
+                    document.getElementById("transaction-time").innerText = "Date & Time: 2024-03-10 10:30 AM";
+                    break;
+                case 'transaction3':
+                    document.getElementById("transaction-id").innerText = "Transaction ID: 345678";
+                    document.getElementById("transaction-time").innerText = "Date & Time: 2024-03-10 11:15 AM";
+                    break;
+                case 'transaction4':
+                    document.getElementById("transaction-id").innerText = "Transaction ID: 456789";
+                    document.getElementById("transaction-time").innerText = "Date & Time: 2024-03-11 09:30 AM";
+                    break;
+                case 'transaction5':
+                    document.getElementById("transaction-id").innerText = "Transaction ID: 901234";
+                    document.getElementById("transaction-time").innerText = "Date & Time: 2024-03-11 11:00 AM";
+                    break;
+                case 'transaction6':
+                    document.getElementById("transaction-id").innerText = "Transaction ID: 567890";
+                    document.getElementById("transaction-time").innerText = "Date & Time: 2024-03-11 12:45 PM";
+                    break;
+            }
+        }
+
+      
+        function closeTransactionDetails() {
+            var modal = document.getElementById("transaction-modal");
+            modal.style.display = "none";
+        }
+
+        
+        window.onclick = function(event) {
+            var modal = document.getElementById("transaction-modal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

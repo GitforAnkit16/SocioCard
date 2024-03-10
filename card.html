@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Theme Website</title>
+    <link rel="stylesheet" href="card.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><img src="sociologo.png"  width="100" height="100"  /></a></li>
+            <li><a href="card.html">Home</a></li>
+            <li><a href="card.html">Sociocard</a></li>
+            <li><a href="sociocredit.html">Sociocredit</a></li>
+            <li><a href="transaction.html">Transactions</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <div class="front">
+                <img src="./card front.png" alt="Front Image">
+            </div>
+            <div class="back">
+                <img src="./card back.png" alt="Back Image">
+            </div>
+        </div>
+       
+        <div class="money-section">
+            <h2>Add Money to the Card</h2>
+            <input type="number" id="money-input" placeholder="Enter amount" required>
+            <button onclick="addMoney()">Add</button>
+            <p id="bank-balance">Your current bank balance is ₹0</p>
+        </div>
+        
+       
+        <div class="shop-section">
+            <h1>Shop using your Sociocard</h1>
+            <form>
+                <select id="brand">
+                    <option value="myntra">Myntra</option>
+                    <option value="ajio">Ajio</option>
+                    <option value="dominos">Dominos</option>
+                    <option value="lenskart">Lenskart</option>
+                    <option value="reliance-trends">Reliance Trends</option>
+                    <option value="KFC">KFC</option>
+                    <option value="bookmyshow">BookmyShow</option>
+                    <option value="Meesho">Meesho</option>
+
+                </select>
+                <select id="product">
+                    <option value="Shirt-500">Shirt - ₹500</option>
+                    <option value="T-shirt-350">T-shirt - ₹350</option>
+                    <option value="Pizza-200">Pizza - ₹200</option>
+                    <option value="Eyeglasses-800">Eyeglasses - ₹800</option>
+                    <option value="Trousers-600">Trousers - ₹600</option>
+                    <option value="Jeans-500">Jeans - ₹500</option>
+                </select>
+                <button type="button" onclick="buyProduct()">Buy Now</button>
+            </form>
+            
+        </div>
+
+      
+        <div class="cashback-section">
+            <h2>Claim Your Cash Back</h2>
+            <input type="text" id="social-media-handle" placeholder="Social Media Handle" required>
+            <input type="text" id="post" placeholder="Post" required>
+            <button onclick="verifyPost()">Verify</button>
+            <button id="claim-button" style="display: none;" onclick="claimCashback()">Claim Your Cash Back Now</button>
+        </div>
+    </div>
+    <div class="logos">
+        <div class="logos-slide">
+          <img src="./pantaloons.jpeg" />
+          <img src="./dominos.png" />
+          <img src="./kfc.jpeg" />
+          <img src="./lenskart.jpeg" />
+          <img src="./myntra.png" />
+          <img src="./ajio.png" />
+          <img src="./meesho.png" />
+     
+    </div>
+
+    <script src="main.js">
+       
+    </script>
+     <script>var copy = document.querySelector(".logos-slide").cloneNode(true);
+        document.querySelector(".logos").appendChild(copy);</script>
+</body>
+</html>

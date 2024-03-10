@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocioCredit</title>
+    <link rel="stylesheet" href="sociocredit.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><img src="sociologo.png"  width="100" height="100"  /></a></li>
+            <li><a href="card.html">Home</a></li>
+            <li><a href="card.html">Sociocard</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>SocioCredit</h1>
+        <form id="credit-form">
+            <div class="form-group">
+                <label for="pan">PAN Number</label>
+                <input type="text" id="pan" name="pan" required>
+            </div>
+            <div class="form-group">
+                <label for="aadhaar">Aadhaar Number</label>
+                <input type="text" id="aadhaar" name="aadhaar" required>
+            </div>
+            <button type="button" onclick="checkCreditScore()">Check Civil Score</button>
+        </form>
+        
+        <div id="credit-info" style="display: none;">
+            <p id="credit-score"></p>
+            <div>
+                <input type="range" id="credit-slider" min="0" max="5000" value="0" oninput="updateSliderValue(this.value)">
+                <span id="slider-value">0</span> 
+            </div>
+            <button type="button" onclick="getCredit()">Get Credit</button>
+        </div>
+    </div>
+
+    <script>
+        function updateSliderValue(value) {
+             document.getElementById("slider-value").innerText = value;
+        }
+        function checkCreditScore() {
+            var pan = document.getElementById("pan").value;
+            var aadhaar = document.getElementById("aadhaar").value;
+            
+           
+            var creditScore = Math.floor(Math.random() * 100) + 701;
+
+           
+            document.getElementById("credit-score").innerText = `Your credit score is ${creditScore}. You are eligible for credit.`;
+            document.getElementById("credit-info").style.display = "block";
+        }
+
+        function getCredit() {
+            var creditAmount = document.getElementById("credit-slider").value;
+            alert(`Credit of ₹${creditAmount} availed.`);
+        }
+    </script>
+</body>
+</html>
